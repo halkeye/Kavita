@@ -26,6 +26,7 @@ export class ChangelogComponent implements OnInit {
 
   ngOnInit(): void {
     this.serverService.getChangelog().subscribe(updates => {
+      updates = updates.slice(0, 6);
       this.updates = updates;
       this.isLoading = false;
       this.cdRef.markForCheck();
